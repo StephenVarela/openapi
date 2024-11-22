@@ -1,0 +1,52 @@
+properties:
+  name:
+    type: string
+    example: my-droplet-name
+    description: "name to be applied to all droplets"
+  names: 
+    type: array
+    items:
+      type: string
+      example: "my-droplet-name"
+    description: "list of names to be applied to the list of droplets in the pool"
+  region:
+    type: string
+    example: tor1
+    description: the datacenter (region) in which all of the droplets will be created
+  size:
+    type: string
+    example: s-1vcpu-512mb-10gb
+    description: used to specify an image slug or image id
+  ssh_keys:
+    type: array
+    items: 
+      type: string
+      example: "392594"
+    description: Used to specify which keys should be installed on the droplets. You can either specify the key id or the fingerprint
+  tags:
+    type: array
+    items:
+      type: string
+      example: tagged-droplets
+    description: Used to apply tags to each of the droplets in the autoscale pool
+  vpc_uuid:
+    type: string
+    description: Used to specify the VPC where the droplets will be created. Note that the VPC needs to exist in the region you intend to create the droplets in.
+  with_droplet_agent:
+    type: boolean
+    description: In order for DO to monitor the droplet utilization used for the resource utilization scaling this needs to be set to true.
+  project_id:
+    type: string
+    description: Allows you to specify which project the droplets will belong to
+  ipv6:
+    type: boolean
+    description: Will assign an IPV6 to the droplets
+  user_data:
+    type: string
+    example: |
+      #cloud-config
+      runcmd:
+        - touch /test.txt
+    description: A string containing 'user data' which may be used to configure
+      the Droplet on first boot, often a 'cloud-config' file or Bash script.
+      It must be plain text and may not exceed 64 KiB in size.

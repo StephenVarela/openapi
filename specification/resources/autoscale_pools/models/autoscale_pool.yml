@@ -1,0 +1,29 @@
+type: object
+
+properties:
+  id:
+    type: string
+    example: 0d3db13e-a604-4944-9827-7ec2642d32ac
+    description: A unique identifier for each Autoscale pool instance. This is
+      automatically generated upon Autoscale Pool creation.
+
+  name:
+    type: string
+    example: my-autoscale-pool
+    description: The human-readable name set for the Autoscale Pool.
+
+  config:
+    oneOf:
+      - $ref: ../models/autoscale_pool_static_config.yml
+      - $ref: ../models/autoscale_pool_dynamic_config.yml
+    type: object
+    description: Config is the scaling configuration for an autoscale pool. 
+      there are 2 types of scaling configuration, static and dynamic.
+      static requires specifying a target number of instances whereas dynamic
+      requires min, max, target utilizations and a cool down period
+  droplet_template:    
+      $ref: ../models/autoscale_pool_droplet_template.yml
+      type: object
+      description: this template is used to create all of the droplets in the pool
+        with the specified attributes
+      

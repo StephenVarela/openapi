@@ -1,0 +1,22 @@
+properties:
+  min_instances:
+    type: integer
+    example: 5
+    description: the lower bound of the number of droplets in the autoscale pool between [0, 500]
+  max_instances:
+    type: integer
+    example: 10
+    description: the upper bound for the target number of droplets in an autoscale pool between [0. 1000]
+  target_cpu_utilization:
+    type: float
+    example: 0.6
+    description: target cpu utilization as a decimal between [0, 1]
+  target_memory_utilization:
+    type: float
+    example: 0.6
+    description: target memory utilization as a decimal between [0, 1]
+  cooldown_minutes:
+    type: integer
+    example: 5
+    description: To prevent thrashing there is a cool down period which may be provided 
+      this will default to 10 minutes if not provided and can be specified between [5, 20] minutes

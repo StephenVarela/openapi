@@ -1,0 +1,9 @@
+autoscale_pool_id:
+  in: path
+  name: autoscale_pool_id
+  description: A unique identifier for a Autoscale Pool instance.
+  required: true
+  schema:
+    type: string
+    minimum: 1
+  example: 0d3db13e-a604-4944-9827-7ec2642d32ac
